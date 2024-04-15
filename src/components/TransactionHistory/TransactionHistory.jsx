@@ -1,6 +1,6 @@
 import { Table, Td, Th } from './TransactionHistory.styled';
 
-const TransactionHistory = items => {
+const TransactionHistory = ({ items }) => {
   return (
     <Table class="transaction-history">
       <thead>
@@ -12,13 +12,15 @@ const TransactionHistory = items => {
       </thead>
 
       <tbody>
-        {items.map(item => (
-          <tr key={item.id}>
-            <Td>{item.type}</Td>
-            <Td>{item.amount}</Td>
-            <Td>{item.currency}</Td>
-          </tr>
-        ))}
+        {items.map(item => {
+          return (
+            <tr key={item.id}>
+              <Td>{item.type}</Td>
+              <Td>{item.amount}</Td>
+              <Td>{item.currency}</Td>
+            </tr>
+          );
+        })}
       </tbody>
     </Table>
   );
